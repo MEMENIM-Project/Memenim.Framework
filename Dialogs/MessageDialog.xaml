@@ -1,0 +1,47 @@
+﻿<controls:CustomDialog x:Class="Memenim.Dialogs.MessageDialog"
+                       d:DataContext="{d:DesignInstance local:MessageDialog}"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:local="clr-namespace:Memenim.Dialogs"
+                       xmlns:markupLocalization="clr-namespace:RIS.Localization.UI.WPF.Markup;assembly=RIS.Localization.UI.WPF"
+                       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                       xmlns:emoji="clr-namespace:Emoji.Wpf;assembly=Emoji.Wpf"
+                       mc:Ignorable="d"
+                       MinHeight="150" MinWidth="300"
+                       Style="{StaticResource DefaultDialog}"
+                       Title="{Binding Path=DialogTitle}"
+                       KeyUp="Dialog_KeyUp">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <emoji:TextBlock Grid.Row="0"
+                         MinHeight="50"
+                         Style="{DynamicResource Paragraph}"
+                         Foreground="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                         Text="{Binding Path=DialogMessage}"
+                         TextWrapping="Wrap"
+                         Margin="10"/>
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                    Margin="5">
+            <Button x:Name="OkButton"
+                    Style="{DynamicResource MahApps.Styles.Button.Dialogs.Accent}"
+                    Content="{markupLocalization:LocalizedString OkTitle}"
+                    Margin="0 0 10 0"
+                    Click="Ok_Click"/>
+            <Button x:Name="CancelButton"
+                    Style="{DynamicResource MahApps.Styles.Button.Dialogs}"
+                    Content="{markupLocalization:LocalizedString CancelTitle}"
+                    Visibility="{Binding Path=IsCancellable, Converter={StaticResource BooleanToVisibilityConverter}}"
+                    Margin="0 0 10 0"
+                    Click="Cancel_Click"/>
+        </StackPanel>
+    </Grid>
+</controls:CustomDialog>
