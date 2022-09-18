@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using System.Windows;
-using Memenim.Dialogs;
-using Memenim.Layouts;
-using Memenim.Layouts.NavigationBar;
-using Memenim.Navigation;
-using Memenim.Pages;
-using Memenim.Pages.ViewModel;
-using Memenim.Settings;
-using Memenim.Utils;
+﻿using Memenim.Framework.Layouts;
+using Memenim.Framework.Layouts.NavigationBar;
 
-namespace Memenim.Widgets
+namespace Memenim.Framework.Widgets
 {
     public partial class NavigationBar : WidgetContent
     {
@@ -168,26 +158,9 @@ namespace Memenim.Widgets
                     //else
                     //    MainWindow.Instance.SettingsFlyout.Hide();
                 }
-                else if (button.Information == "UserProfilePage")
-                {
-                    //if (NavigationController.Instance.PageContent.Content is UserProfilePage page
-                    //    && page.DataContext is UserProfileViewModel viewModel
-                    //    && viewModel.CurrentProfileData.Id == SettingsManager.PersistentSettings.CurrentUser.Id)
-                    //{
-                    //    return;
-                    //}
-
-                    //NavigationController.Instance.RequestPage<UserProfilePage>(new UserProfileViewModel
-                    //{
-                    //    CurrentProfileData = new ProfileSchema
-                    //    {
-                    //        Id = SettingsManager.PersistentSettings.CurrentUser.Id
-                    //    }
-                    //});
-                }
                 else
                 {
-                    NavigationController.Instance.RequestPage(Type.GetType($"Memenim.Pages.{button.Information}"));
+                    NavigationController.Instance.RequestPage(Type.GetType($"Memenim.Framework.Pages.{button.Information}"));
                 }
 
                 RaiseEvent(new RoutedEventArgs(RedirectOccurredEvent));

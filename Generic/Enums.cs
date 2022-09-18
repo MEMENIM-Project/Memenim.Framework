@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Memenim.Generic
+﻿namespace Memenim.Framework.Generic
 {
     public enum ControlStateType : byte
     {

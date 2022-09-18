@@ -1,11 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows;
-using System.Windows.Controls;
-using Memenim.Generic;
-
-namespace Memenim.Widgets
+﻿namespace Memenim.Framework.Widgets
 {
     public abstract class WidgetContent : UserControl, INotifyPropertyChanged
     {

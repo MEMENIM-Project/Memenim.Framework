@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using MahApps.Metro.Controls;
-using Memenim.Layouts;
-using Memenim.Layouts.NavigationBar;
-using Memenim.Pages;
-using Memenim.Pages.ViewModel;
-using RIS;
-using RIS.Collections.Chunked;
-using RIS.Collections.Extensions;
+﻿using Memenim.Framework.Layouts;
+using Memenim.Framework.Layouts.NavigationBar;
 
-namespace Memenim.Navigation
+namespace Memenim.Framework.Navigation
 {
     public sealed partial class NavigationController : UserControl
     {
@@ -84,7 +73,7 @@ namespace Memenim.Navigation
                 foreach (var pageName in (string[])dictionary["TriggeredOnPages"])
                 {
                     var pageType = Type.GetType(
-                        $"Memenim.Pages.{pageName}");
+                        $"Memenim.Framework.Pages.{pageName}");
 
                     if (pageType == null)
                         continue;

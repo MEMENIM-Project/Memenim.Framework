@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Memenim.Settings
+﻿namespace Memenim.Framework.Settings
 {
     public enum CommentReplyModeType : byte
     {

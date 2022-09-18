@@ -1,9 +1,6 @@
-﻿using System;
-using RIS.Extensions;
-using RIS.Randomizing;
-using RIS.Text.Generating;
+﻿using RIS.Text.Generating;
 
-namespace Memenim.Generating
+namespace Memenim.Framework.Generating
 {
     public static class GeneratingManager
     {

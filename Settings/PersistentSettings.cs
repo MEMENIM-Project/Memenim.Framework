@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Threading.Tasks;
-using Memenim.Cryptography.Windows;
-using Memenim.Settings.Entities;
-using RIS.Extensions;
+﻿using System.Security.Cryptography;
+using Memenim.Framework.Cryptography.Windows;
+using Memenim.Framework.Settings.Entities;
 using RIS.Settings.Ini;
-using Environment = RIS.Environment;
 
-namespace Memenim.Settings
+namespace Memenim.Framework.Settings
 {
     public sealed class PersistentSettings
     {
@@ -49,7 +41,7 @@ namespace Memenim.Settings
                 null,
                 null,
                 -1,
-                null,
+                //null,
                 UserStoreType.Unknown);
 
             Load();
@@ -186,68 +178,68 @@ namespace Memenim.Settings
                     .ToArray();
                 var users = new Dictionary<string, User>(userLogins.Length);
 
-                foreach (var login in userLogins)
-                {
-                    try
-                    {
-                        var token = GetUserToken(login);
-                        string rocketPassword = string.Empty;
+                //foreach (var login in userLogins)
+                //{
+                //    try
+                //    {
+                //        var token = GetUserToken(login);
+                //        string rocketPassword = string.Empty;
 
-                        Task.Run(async () =>
-                        {
-                            try
-                            {
-                                rocketPassword = GetUserRocketPassword(login);
+                //        Task.Run(async () =>
+                //        {
+                //            try
+                //            {
+                //                rocketPassword = GetUserRocketPassword(login);
 
-                                if (string.IsNullOrEmpty(rocketPassword))
-                                {
-                                    var result = await UserApi.GetRocketPassword(
-                                            token)
-                                        .ConfigureAwait(false);
+                //                if (string.IsNullOrEmpty(rocketPassword))
+                //                {
+                //                    var result = await UserApi.GetRocketPassword(
+                //                            token)
+                //                        .ConfigureAwait(false);
 
-                                    if (!result.IsError
-                                        && result.Data != null)
-                                    {
-                                        rocketPassword = result.Data.Password;
-                                        SetUserRocketPassword(login, rocketPassword);
-                                    }
-                                    else
-                                    {
-                                        rocketPassword = string.Empty;
-                                        SetUserRocketPassword(login, rocketPassword);
-                                    }
-                                }
-                            }
-                            catch (CryptographicException)
-                            {
-                                rocketPassword = string.Empty;
-                                SetUserRocketPassword(login, rocketPassword);
-                            }
-                            catch (FormatException)
-                            {
-                                rocketPassword = string.Empty;
-                                SetUserRocketPassword(login, rocketPassword);
-                            }
-                        });
+                //                    if (!result.IsError
+                //                        && result.Data != null)
+                //                    {
+                //                        rocketPassword = result.Data.Password;
+                //                        SetUserRocketPassword(login, rocketPassword);
+                //                    }
+                //                    else
+                //                    {
+                //                        rocketPassword = string.Empty;
+                //                        SetUserRocketPassword(login, rocketPassword);
+                //                    }
+                //                }
+                //            }
+                //            catch (CryptographicException)
+                //            {
+                //                rocketPassword = string.Empty;
+                //                SetUserRocketPassword(login, rocketPassword);
+                //            }
+                //            catch (FormatException)
+                //            {
+                //                rocketPassword = string.Empty;
+                //                SetUserRocketPassword(login, rocketPassword);
+                //            }
+                //        });
 
-                        users.Add(
-                            login,
-                            new User(
-                                login,
-                                token,
-                                GetUserId(login),
-                                rocketPassword,
-                                UserStoreType.Permanent));
-                    }
-                    catch (CryptographicException)
-                    {
-                        RemoveUser(login, false);
-                    }
-                    catch (FormatException)
-                    {
-                        RemoveUser(login, false);
-                    }
-                }
+                //        users.Add(
+                //            login,
+                //            new User(
+                //                login,
+                //                token,
+                //                GetUserId(login),
+                //                rocketPassword,
+                //                UserStoreType.Permanent));
+                //    }
+                //    catch (CryptographicException)
+                //    {
+                //        RemoveUser(login, false);
+                //    }
+                //    catch (FormatException)
+                //    {
+                //        RemoveUser(login, false);
+                //    }
+                //}
 
                 var oldAvailableUsers = AvailableUsers;
                 AvailableUsers = new ReadOnlyDictionary<string, User>(users);
@@ -301,7 +293,7 @@ namespace Memenim.Settings
                 login,
                 token,
                 id,
-                null,
+                //null,
                 UserStoreType.Temporary);
 
             CurrentUserChanged?.Invoke(this,
@@ -320,7 +312,7 @@ namespace Memenim.Settings
                 null,
                 null,
                 -1,
-                null,
+                //null,
                 UserStoreType.Unknown);
 
             CurrentUserChanged?.Invoke(this,
@@ -445,7 +437,7 @@ namespace Memenim.Settings
                 null,
                 null,
                 -1,
-                null,
+                //null,
                 UserStoreType.Unknown);
 
             var userSection = GetSection(login);
@@ -453,38 +445,38 @@ namespace Memenim.Settings
             if (userSection == null)
                 return false;
 
-            try
-            {
-                string rocketPassword;
+            //try
+            //{
+            //    string rocketPassword;
 
-                try
-                {
-                    rocketPassword = GetUserRocketPassword(login);
-                }
-                catch (CryptographicException)
-                {
-                    rocketPassword = null;
-                }
-                catch (FormatException)
-                {
-                    rocketPassword = null;
-                }
+            //    try
+            //    {
+            //        rocketPassword = GetUserRocketPassword(login);
+            //    }
+            //    catch (CryptographicException)
+            //    {
+            //        rocketPassword = null;
+            //    }
+            //    catch (FormatException)
+            //    {
+            //        rocketPassword = null;
+            //    }
 
-                user = new User(
-                    login,
-                    GetUserToken(login),
-                    GetUserId(login),
-                    rocketPassword,
-                    UserStoreType.Permanent);
-            }
-            catch (CryptographicException)
-            {
-                return false;
-            }
-            catch (FormatException)
-            {
-                return false;
-            }
+            //    user = new User(
+            //        login,
+            //        GetUserToken(login),
+            //        GetUserId(login),
+            //        //rocketPassword,
+            //        UserStoreType.Permanent);
+            //}
+            //catch (CryptographicException)
+            //{
+            //    return false;
+            //}
+            //catch (FormatException)
+            //{
+            //    return false;
+            //}
 
             return true;
         }
@@ -519,18 +511,18 @@ namespace Memenim.Settings
                 : -1;
         }
 
-        public string GetUserRocketPassword(string login)
-        {
-            if (CurrentUser.Login == login
-                && CurrentUser.IsTemporary())
-            {
-                return CurrentUser.RocketPassword;
-            }
+        //public string GetUserRocketPassword(string login)
+        //{
+        //    if (CurrentUser.Login == login
+        //        && CurrentUser.IsTemporary())
+        //    {
+        //        return CurrentUser.RocketPassword;
+        //    }
 
-            return WindowsCipherManager.Decrypt(
-                Get(login, "UserRocketPassword"),
-                $"UserRocketPassword-{login}");
-        }
+        //    return WindowsCipherManager.Decrypt(
+        //        Get(login, "UserRocketPassword"),
+        //        $"UserRocketPassword-{login}");
+        //}
 
 
         public bool SetUser(string login, string token, int id,
@@ -543,7 +535,7 @@ namespace Memenim.Settings
                     CurrentUser.Login,
                     token,
                     id,
-                    rocketPassword,
+                    //rocketPassword,
                     CurrentUser.StoreType);
 
                 return true;
@@ -591,7 +583,7 @@ namespace Memenim.Settings
                     CurrentUser.Login,
                     token,
                     CurrentUser.Id,
-                    CurrentUser.RocketPassword,
+                    //CurrentUser.RocketPassword,
                     CurrentUser.StoreType);
 
                 return;
@@ -612,7 +604,7 @@ namespace Memenim.Settings
                     CurrentUser.Login,
                     CurrentUser.Token,
                     id,
-                    CurrentUser.RocketPassword,
+                    //CurrentUser.RocketPassword,
                     CurrentUser.StoreType);
 
                 return;
@@ -634,7 +626,7 @@ namespace Memenim.Settings
                     CurrentUser.Login,
                     CurrentUser.Token,
                     CurrentUser.Id,
-                    rocketPassword,
+                    //rocketPassword,
                     CurrentUser.StoreType);
 
                 return;

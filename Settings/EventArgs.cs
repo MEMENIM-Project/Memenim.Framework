@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using Memenim.Settings.Entities;
+﻿using Memenim.Framework.Settings.Entities;
 
-namespace Memenim.Settings
+namespace Memenim.Framework.Settings
 {
     public class AvailableUsersChangedEventArgs : EventArgs
     {

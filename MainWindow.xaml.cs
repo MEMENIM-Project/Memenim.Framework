@@ -1,24 +1,12 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Interop;
+﻿using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using MahApps.Metro.Controls;
-using Memenim.Dialogs;
-using Memenim.Native.Window;
-using Memenim.Native.Window.Utils;
-using Memenim.Navigation;
-using Memenim.Protocols;
-using Memenim.Protocols.Schemas;
-using Memenim.Settings;
-using Memenim.Styles;
-using Memenim.Styles.Loading.Entities;
-using Memenim.Utils;
-using Math = RIS.Mathematics.Math;
+using Memenim.Framework.Native.Window;
+using Memenim.Framework.Native.Window.Utils;
+using Memenim.Framework.Styles;
+using Memenim.Framework.Styles.Loading.Entities;
 
-namespace Memenim
+namespace Memenim.Framework
 {
     public sealed partial class MainWindow : MetroWindow, INativelyRestorableWindow
     {
@@ -125,12 +113,12 @@ namespace Memenim
 
             ApplyLoadingStyle();
 
-            ApiRequestEngine.ConnectionStateChanged += OnConnectionStateChanged;
+            //ApiRequestEngine.ConnectionStateChanged += OnConnectionStateChanged;
         }
 
         ~MainWindow()
         {
-            ApiRequestEngine.ConnectionStateChanged -= OnConnectionStateChanged;
+            //ApiRequestEngine.ConnectionStateChanged -= OnConnectionStateChanged;
         }
 
 
@@ -554,19 +542,19 @@ namespace Memenim
 
 
 
-        private async void OnConnectionStateChanged(object sender,
-            ConnectionStateChangedEventArgs e)
-        {
-            await Dispatcher.Invoke(() =>
-            {
-                return e.NewState switch
-                {
-                    ConnectionStateType.Connected => HideConnectionFailedGrid(),
-                    ConnectionStateType.Disconnected => ShowConnectionFailedGrid(),
-                    _ => Task.CompletedTask,
-                };
-            }).ConfigureAwait(true);
-        }
+        //private async void OnConnectionStateChanged(object sender,
+        //    ConnectionStateChangedEventArgs e)
+        //{
+        //    await Dispatcher.Invoke(() =>
+        //    {
+        //        return e.NewState switch
+        //        {
+        //            ConnectionStateType.Connected => HideConnectionFailedGrid(),
+        //            ConnectionStateType.Disconnected => ShowConnectionFailedGrid(),
+        //            _ => Task.CompletedTask,
+        //        };
+        //    }).ConfigureAwait(true);
+        //}
 
 
 
@@ -602,14 +590,14 @@ namespace Memenim
             if (string.IsNullOrWhiteSpace(link))
                 return;
 
-            if (Uri.TryCreate(link, UriKind.Absolute, out var uri)
-                && uri.Scheme == MemenimSchema.Instance.Name)
-            {
-                ProtocolManager.ParseUri(
-                    link);
+            //if (Uri.TryCreate(link, UriKind.Absolute, out var uri)
+            //    && uri.Scheme == MemenimSchema.Instance.Name)
+            //{
+            //    ProtocolManager.ParseUri(
+            //        link);
 
-                return;
-            }
+            //    return;
+            //}
 
             LinkUtils.OpenLink(
                 link);

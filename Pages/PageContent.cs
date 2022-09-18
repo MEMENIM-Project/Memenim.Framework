@@ -1,12 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows;
-using System.Windows.Controls;
-using Memenim.Generic;
-using Memenim.Pages.ViewModel;
-
-namespace Memenim.Pages
+﻿namespace Memenim.Framework.Pages
 {
     public abstract class PageContent : UserControl, INotifyPropertyChanged
     {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Memenim.Utils
+﻿namespace Memenim.Framework.Utils
 {
     public class UserNameChangedEventArgs : EventArgs
     {

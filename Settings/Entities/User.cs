@@ -1,25 +1,23 @@
-﻿using System;
-
-namespace Memenim.Settings.Entities
+﻿namespace Memenim.Framework.Settings.Entities
 {
     public class User
     {
         public string Login { get; }
         public string Token { get; }
         public int Id { get; }
-        public string RocketPassword { get; private set; }
+        //public string RocketPassword { get; private set; }
         public UserStoreType StoreType { get; }
 
 
 
         public User(string login, string token,
-            int id, string rocketPassword,
+            int id, //string rocketPassword,
             UserStoreType storeType)
         {
             Login = login;
             Token = token;
             Id = id;
-            RocketPassword = rocketPassword;
+            //RocketPassword = rocketPassword;
             StoreType = storeType;
         }
 
@@ -31,18 +29,18 @@ namespace Memenim.Settings.Entities
         }
 
 
-        public bool HasRocketPassword()
-        {
-            return !string.IsNullOrEmpty(RocketPassword);
-        }
+        //public bool HasRocketPassword()
+        //{
+        //    return !string.IsNullOrEmpty(RocketPassword);
+        //}
 
-        public void SetRocketPassword(
-            string rocketPassword)
-        {
-            RocketPassword = rocketPassword;
+        //public void SetRocketPassword(
+        //    string rocketPassword)
+        //{
+        //    RocketPassword = rocketPassword;
 
-            SettingsManager.PersistentSettings.SetUserRocketPassword(
-                Login, rocketPassword);
-        }
+        //    SettingsManager.PersistentSettings.SetUserRocketPassword(
+        //        Login, rocketPassword);
+        //}
     }
 }

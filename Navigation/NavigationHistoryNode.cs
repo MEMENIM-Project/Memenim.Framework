@@ -1,8 +1,4 @@
-﻿using System;
-using Memenim.Pages;
-using Memenim.Pages.ViewModel;
-
-namespace Memenim.Navigation
+﻿namespace Memenim.Framework.Navigation
 {
     public struct NavigationHistoryNode
     {

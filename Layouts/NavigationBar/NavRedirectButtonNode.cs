@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Memenim.Layouts.NavigationBar
+﻿namespace Memenim.Framework.Layouts.NavigationBar
 {
     public struct NavRedirectButtonNode
     {

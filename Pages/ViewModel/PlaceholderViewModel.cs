@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Memenim.Pages.ViewModel
+﻿namespace Memenim.Framework.Pages.ViewModel
 {
     public class PlaceholderViewModel : PageViewModel
     {

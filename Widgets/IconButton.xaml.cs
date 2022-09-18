@@ -1,16 +1,14 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 using MahApps.Metro.IconPacks;
 
-namespace Memenim.Widgets
+namespace Memenim.Framework.Widgets
 {
     public partial class IconButton : WidgetContent
     {
         public static readonly RoutedEvent ClickEvent =
             EventManager.RegisterRoutedEvent(nameof(Click), RoutingStrategy.Direct,
                 typeof(EventHandler<RoutedEventArgs>), typeof(IconButton));
-        
+
 
 
         public static readonly DependencyProperty IconSizeProperty =

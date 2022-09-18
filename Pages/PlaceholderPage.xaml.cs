@@ -1,9 +1,4 @@
-﻿using System;
-using System.Windows;
-using Memenim.Generating;
-using Memenim.Pages.ViewModel;
-
-namespace Memenim.Pages
+﻿namespace Memenim.Framework.Pages
 {
     public partial class PlaceholderPage : PageContent
     {

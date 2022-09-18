@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Memenim.Pages;
-using RIS;
-
-namespace Memenim.Navigation
+﻿namespace Memenim.Framework.Navigation
 {
     public static class PageStorage
     {

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 using MahApps.Metro.IconPacks;
 
-namespace Memenim.Widgets
+namespace Memenim.Framework.Widgets
 {
     public partial class IconToggleButton : WidgetContent
     {

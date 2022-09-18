@@ -1,8 +1,6 @@
-﻿using System;
-using System.Diagnostics;
-using RIS;
+﻿using System.Diagnostics;
 
-namespace Memenim.Utils
+namespace Memenim.Framework.Utils
 {
     public static class LinkUtils
     {

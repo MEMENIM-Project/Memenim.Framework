@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Memenim.Navigation
+﻿namespace Memenim.Framework.Navigation
 {
     public enum PageContentType : byte
     {

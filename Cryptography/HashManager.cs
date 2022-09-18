@@ -1,11 +1,7 @@
-﻿using System;
-using System.IO;
-using Memenim.Settings;
-using RIS.Cryptography.Hash;
+﻿using RIS.Cryptography.Hash;
 using RIS.Cryptography.Hash.Methods;
-using Environment = RIS.Environment;
 
-namespace Memenim.Cryptography
+namespace Memenim.Framework.Cryptography
 {
     public static class HashManager
     {

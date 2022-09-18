@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Memenim.Settings.Entities
+﻿namespace Memenim.Framework.Settings.Entities
 {
     public enum UserStoreType : byte
     {

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Windows;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using MahApps.Metro.Controls.Dialogs;
-using Memenim.Utils;
 
-namespace Memenim.Dialogs
+namespace Memenim.Framework.Dialogs
 {
     public partial class ComboBoxDialog : CustomDialog
     {

@@ -1,11 +1,6 @@
-﻿using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using MahApps.Metro.Controls.Dialogs;
-using Memenim.Utils;
-using RIS;
-using RIS.Logging;
+﻿using MahApps.Metro.Controls.Dialogs;
 
-namespace Memenim.Dialogs
+namespace Memenim.Framework.Dialogs
 {
     public static class DialogManager
     {

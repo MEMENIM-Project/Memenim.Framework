@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Globalization;
-using RIS.Localization;
-using RIS.Synchronization;
+﻿using System.Reflection;
 
-namespace Memenim.Utils
+namespace Memenim.Framework.Utils
 {
     public static class LocalizationUtils
     {
@@ -145,8 +141,8 @@ namespace Memenim.Utils
             if (IsInitialized)
                 return;
 
-            var assemblyName = typeof(App)
-                .Assembly
+            var assemblyName = Assembly
+                .GetEntryAssembly()?
                 .GetName()
                 .Name;
 

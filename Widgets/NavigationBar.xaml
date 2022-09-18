@@ -1,10 +1,10 @@
-﻿<local:WidgetContent x:Class="Memenim.Widgets.NavigationBar"
+﻿<local:WidgetContent x:Class="Memenim.Framework.Widgets.NavigationBar"
                      d:DataContext="{d:DesignInstance local:NavigationBar}"
                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                     xmlns:local="clr-namespace:Memenim.Widgets"
+                     xmlns:local="clr-namespace:Memenim.Framework.Widgets"
                      mc:Ignorable="d"
                      d:DesignWidth="40" d:DesignHeight="450">
 

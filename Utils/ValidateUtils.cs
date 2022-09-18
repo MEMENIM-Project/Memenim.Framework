@@ -1,7 +1,6 @@
-﻿using System;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
-namespace Memenim.Utils
+namespace Memenim.Framework.Utils
 {
     public static class ValidateUtils
     {

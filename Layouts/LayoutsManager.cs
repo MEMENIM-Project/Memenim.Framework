@@ -1,10 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Windows;
-using Memenim.Dialogs;
-using Memenim.Utils;
-
-namespace Memenim.Layouts
+﻿namespace Memenim.Framework.Layouts
 {
     public static class LayoutsManager
     {

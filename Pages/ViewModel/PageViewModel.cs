@@ -1,9 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using RIS;
-
-namespace Memenim.Pages.ViewModel
+﻿namespace Memenim.Framework.Pages.ViewModel
 {
     public abstract class PageViewModel : INotifyPropertyChanged
     {

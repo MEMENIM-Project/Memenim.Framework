@@ -1,11 +1,7 @@
-﻿using System;
-using System.IO;
-using System.Windows;
-using RIS.Settings;
+﻿using RIS.Settings;
 using RIS.Settings.Ini;
-using Environment = RIS.Environment;
 
-namespace Memenim.Settings
+namespace Memenim.Framework.Settings
 {
     public sealed class AppSettings : IniSettings
     {

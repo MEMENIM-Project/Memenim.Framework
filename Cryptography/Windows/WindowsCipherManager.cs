@@ -1,9 +1,7 @@
-﻿using System;
-using System.Security.Cryptography;
-using System.Text;
+﻿using System.Security.Cryptography;
 using RIS.Text.Encoding.Base;
 
-namespace Memenim.Cryptography.Windows
+namespace Memenim.Framework.Cryptography.Windows
 {
     public static class WindowsCipherManager
     {
